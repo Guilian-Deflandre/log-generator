@@ -7,7 +7,7 @@ class Log():
         self.description = description
     
     def writeLog(self):
-        file = open(constants.LOG_FILE_NAME, "a")
+        file = open(constants.LOG_FILE_NAME, "a+")
         file.write(self.str() + "\n")
         file.close()
 
