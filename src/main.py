@@ -1,11 +1,13 @@
 from log import *
-from application_log import *
+from logger import Logger
 
 def main():
-    applog = ApplicationLog("MySecretApp.com.Transaction.Manager", 
-                            "Starting transaction for session " + 
-                            "-464410bf-37bf-475a-afc0-498e0199f008")
-    applog.writeLog()
+    # Create new threads
+    threads = []
+    for i in range(constants.NUMBER_OF_THREAD):
+        thread = Logger(i)
+        threads.append(thread)
+        thread.start()
     return
 
 if __name__ == "__main__":

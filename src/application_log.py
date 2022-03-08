@@ -10,5 +10,5 @@ class ApplicationLog(Log):
         self.level = level
 
     def str(self):
-        return self.timestamp.strftime("%Y-%m-%dT%H:%M:%S.%f%z") + " " + \
+        return self.timestamp.astimezone().replace(microsecond=0).isoformat() + " " + \
                 self.level + " [" + self.app_name + "]:" + self.description
