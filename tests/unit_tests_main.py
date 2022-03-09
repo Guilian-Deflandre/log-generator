@@ -1,6 +1,8 @@
 import unittest
-from src.log import *
-from src.cisco_ios_log import CiscoIOSLog
+
+from faker import Faker
+#import src
+#from src import utils
 
 _log_examples = ["SYS-5-CONFIG_I: Configured from console by console",
                 "LINK-3-UPDOWN: Interface GigabitEthernet0/0, changed state to up",
@@ -21,13 +23,18 @@ _log_examples = ["SYS-5-CONFIG_I: Configured from console by console",
                 "LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/3, changed state to down"]
 
 class UnitTest(unittest.TestCase):
-    def test_function_generate_log_cisco_ios(self):
+    '''def test_function_generate_log_cisco_ios(self):
         ciscoLogger = CiscoIOSLog()
         log = ciscoLogger._generate_log()
         if(log not in _log_examples):
             print(log)
 
         self.assertTrue(ciscoLogger._generate_log() in _log_examples)
+    '''
+    def test_function_generate_username(self):
+        # username = utils.get_user_name()
+        print(Faker().simple_profile()["username"])
+        print(Faker().ipv4())
 
 
 if __name__ == '__main__':
