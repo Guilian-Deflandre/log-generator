@@ -10,7 +10,7 @@ def generate_random_username():
         /cirt-default-usernames.txt
     
     """
-    return Faker().simple_profile()["username"]
+    return Faker().user_name()
 
 def generate_random_ipv4_address():
     return Faker().ipv4()
@@ -20,3 +20,6 @@ def generate_random_hostname():
 
 def generate_random_port_number():
     return Faker().port_number()
+
+def generate_session_id():
+    return Faker().sha1()

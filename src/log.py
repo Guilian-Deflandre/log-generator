@@ -3,7 +3,8 @@ import datetime
 
 class Log():
     def __init__(self, description = "", timestamp = None):
-        self.timestamp = datetime.datetime.now() if (timestamp is None) else timestamp
+        self.timestamp = datetime.datetime.now() if (timestamp is None) else \
+                            timestamp
         self.description = description
     
     def writeLog(self):
@@ -12,4 +13,5 @@ class Log():
         file.close()
 
     def str(self):
-        return self.timestamp.strftime("%Y-%m-%dT%H:%M:%S.%f%z") + " " + self.description
+        return self.timestamp.strftime("%Y-%m-%dT%H:%M:%S.%f%z") + " " + \
+                self.description
