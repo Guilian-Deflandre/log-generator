@@ -13,8 +13,7 @@ class Logger(threading.Thread):
         super(Logger, self).__init__()
         self.threadID = threadID
         self._birthday = datetime.datetime.now()
-        self._applog = ApplicationLog("MySecretApp.com.Transaction.Manager",
-                                    "Starting transaction for session ")
+        self._applog = ApplicationLog("InternalWeb", "")
         self._ciscoIOSLog = CiscoIOSLog()
         self._ssh_authentication_log = SSHAuthenticationLogs()
 
@@ -28,10 +27,5 @@ class Logger(threading.Thread):
                 self._ssh_authentication_log.writeLog()
             if(random.random() < constants.PROBABILITY_LOGGING_CISCO_IOS):
                 self._ciscoIOSLog.writeLog()
-
-            self._applog.writeLog()
-            
-            
-            if((datetime.datetime.now() - self._birthday).total_seconds() 
-                    > 10):
-                return
+            if(random.random() < constants.PROBABILITY_LOGGING_APPLICATION):
+                self._applog.writeLog()
