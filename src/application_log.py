@@ -24,14 +24,14 @@ class ApplicationLog(Log):
     def _generate_connection_unknow_user_log(self):
         description = "Unknow user " + utils.generate_random_username() + \
                       " tried to connect from " + utils.generate_random_ipv4_address()
-        return constants.LOG_LEVELS_STRING[constants.LOG_INFO_LEVEL] + " [" + \
+        return constants.LOG_LEVELS_STRING[constants.LOG_ERROR_LEVEL] + " [" + \
                 self.app_name + ".com.Connection.Manager]: " + description
 
     def _generate_profile_update_log(self):
         description = "User " + utils.generate_random_username() + \
-                      " connected update profil from " + \
+                      " update profil from " + \
                       utils.generate_random_ipv4_address()
-        return constants.LOG_LEVELS_STRING[constants.LOG_ERROR_LEVEL] + " [" + \
+        return constants.LOG_LEVELS_STRING[constants.LOG_INFO_LEVEL] + " [" + \
                 self.app_name + ".com.Profile.Manager]: " + description
 
     def _generate_transaction_log(self):

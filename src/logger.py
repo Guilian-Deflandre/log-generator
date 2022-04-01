@@ -27,10 +27,5 @@ class Logger(threading.Thread):
                 self._ssh_authentication_log.writeLog()
             if(random.random() < constants.PROBABILITY_LOGGING_CISCO_IOS):
                 self._ciscoIOSLog.writeLog()
-
-            self._applog.writeLog()
-            
-            
-            if((datetime.datetime.now() - self._birthday).total_seconds() 
-                    > 10):
-                return
+            if(random.random() < constants.PROBABILITY_LOGGING_APPLICATION):
+                self._applog.writeLog()
