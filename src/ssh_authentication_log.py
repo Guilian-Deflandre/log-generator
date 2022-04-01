@@ -46,9 +46,9 @@ class SSHAuthenticationLogs(Log):
                    status + " user " + username + " from " + ip_address
         elif(status == "Failed"):
             return host + " " + self._LOG_PROCESS + "[" + str(pid) + "]: " + \
-                   " password for " + random.choice(["invalid user ", ""]) + \
-                   status + username + " from " + ip_address + " port " + \
-                   port_number + " ssh2"
+                   status + " password for " + \
+                   random.choice(["invalid user ", ""]) + status + username + \
+                   " from " + ip_address + " port " + port_number + " ssh2"
         
         return host + " " + self._LOG_PROCESS + "[" + str(pid) + "]: " + \
                status + " password for " + username + " from " + ip_address + \
