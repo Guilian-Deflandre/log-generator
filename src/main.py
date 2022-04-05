@@ -1,5 +1,5 @@
-from log import *
-from logger import Logger
+from src import constants
+from src.logger import Logger
 
 def main():
     # Create new threads

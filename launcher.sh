@@ -1,6 +1,4 @@
 #!/bin/sh
-#image=$(docker image build --quiet .)
-#docker container run --detach --name="logger" --user="$(id -u)" --volume="$PWD"/output:/logger/output --rm "$image" 
-export UID=$(id -u)
-export GID=$(id -g)
+export DOCKER_UID=$(id -u)
+export DOCKER_GID=$(id -g)
 docker-compose up -d

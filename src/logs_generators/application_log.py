@@ -1,8 +1,8 @@
 from pydoc import describe
 import random
-import utils
-import constants
-from log import Log
+from src import utils
+from src import constants
+from src.logs_generators.log import Log
 
 class ApplicationLog(Log):
     def __init__(self, app_name, description) -> None:

@@ -3,10 +3,10 @@ import random
 import threading
 import time
 
-from application_log import *
-from cisco_ios_log import CiscoIOSLog
-from constants import *
-from ssh_authentication_log import SSHAuthenticationLogs
+from src import constants
+from src.logs_generators.cisco_ios_log import CiscoIOSLog
+from src.logs_generators.application_log import ApplicationLog
+from src.logs_generators.ssh_authentication_log import SSHAuthenticationLogs
 
 class Logger(threading.Thread):
     def __init__(self, threadID):

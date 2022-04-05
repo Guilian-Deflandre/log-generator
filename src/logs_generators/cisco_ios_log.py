@@ -1,5 +1,5 @@
 import random
-from log import *
+from src.logs_generators.log import *
 
 class CiscoIOSLog(Log):
     """

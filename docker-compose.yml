@@ -2,7 +2,7 @@ version: "3.9"
 services:
   logger:
     container_name: "logger"
-    user: "${UID}:${GID}"
+    user: "${DOCKER_UID}:${DOCKER_GID}"
     build: .
     volumes:
       - "./output:/logger/output"

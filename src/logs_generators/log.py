@@ -1,4 +1,4 @@
-import constants
+from src import constants
 import datetime
 
 class Log():
