@@ -5,8 +5,8 @@ from src import constants
 from src.logs_generators.log import Log
 
 class ApplicationLog(Log):
-    def __init__(self, app_name, description) -> None:
-        super().__init__(description)
+    def __init__(self, app_name) -> None:
+        super().__init__()
         self._description_generator = [
             self._generate_connection_log,
             self._generate_connection_unknow_user_log,

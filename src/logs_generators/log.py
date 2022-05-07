@@ -2,11 +2,9 @@ from src import constants
 import datetime
 
 class Log():
-    def __init__(self, description = "", timestamp = None):
+    def __init__(self, timestamp = None):
         self.timestamp = datetime.datetime.now() if (timestamp is None) else \
-                            timestamp
-        self.description = description
-    
+                            timestamp    
     def writeLog(self):
         file = open(constants.LOG_FILE_NAME, "a+")
         file.write(self.str() + "\n")

@@ -1,6 +1,6 @@
 import random
-import utils
-from log import *
+import src.utils as utils
+from src.logs_generators.log import *
 
 class SSHAuthenticationLogs(Log):
     """
@@ -21,7 +21,7 @@ class SSHAuthenticationLogs(Log):
     _LOG_PROCESS = "sshd"
     
     def __init__(self) -> None:
-        super().__init__("")
+        super().__init__()
 
     def _generate_log(self):
         """TODO

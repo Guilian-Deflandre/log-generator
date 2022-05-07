@@ -102,7 +102,7 @@ class CiscoIOSLog(Log):
     }
     
     def __init__(self) -> None:
-        super().__init__("")
+        super().__init__()
 
     def _generate_log(self):
         """Generate, without timestamp, a random log simulating one created by
