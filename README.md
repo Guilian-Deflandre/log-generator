@@ -1,2 +1,3 @@
 # Log Generator
-This project simulate a network log file generation for log formatted in a way respecting a Logstash regex. Logstash use regular expressions (regex) to collect information from a log file. The goal of this script is to simulate the feeding of a log file aggregated in a SYSLOG device and read by a Logstash process.
+
+This project is used to generate randdomly typical logs of an infrastructure and outpu tem to a file configured from the constants file. The primary goal of this project was to feed a Logstash process for debugging an Elasticsearch deployment first, then to simulte the behaviour of a log aggregator in a honeypot. Logstash use regular expressions (regex) to collect information from a log file.
