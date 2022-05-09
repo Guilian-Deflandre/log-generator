@@ -13,7 +13,7 @@ class Logger(threading.Thread):
         super(Logger, self).__init__()
         self.threadID = threadID
         self._birthday = datetime.datetime.now()
-        self._applog = ApplicationLog("InternalWeb", "")
+        self._applog = ApplicationLog("InternalWeb")
         self._ciscoIOSLog = CiscoIOSLog()
         self._ssh_authentication_log = SSHAuthenticationLogs()
 

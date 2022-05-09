@@ -5,4 +5,4 @@ services:
     user: "${DOCKER_UID}:${DOCKER_GID}"
     build: .
     volumes:
-      - "./output:/logger/output"
+      - "./output:/output"
