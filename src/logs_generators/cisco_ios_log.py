@@ -11,7 +11,7 @@ class CiscoIOSLog(Log):
             seq no:timestamp: %facility-severity-MNEMONIC:description
 
     Here, the format used is the following:
-        mm/dd hh:mm:ss: %facility-severity-MNEMONIC: description
+        mm/dd hh:mm:ss: %FACILITY-SEVERITY-MNEMONIC: DESCRIPTION
 
     See: https://www.cisco.com/c/en/us/td/docs/routers/access/wireless/software-
         /guide/SysMsgLogging.html
@@ -30,7 +30,7 @@ class CiscoIOSLog(Log):
     Methods
     -------
     str()
-        Generate a random log simulating one created by a Cisco device running
+        Generates a random log simulating one created by a Cisco device running
         IOS
     """
 
@@ -47,7 +47,7 @@ class CiscoIOSLog(Log):
     }
 
     def _generate_description_sys():
-        """Generate a random description in accordance with a SYS facilty log.
+        """Generates a random description in accordance with a SYS facilty log.
 
         Parameters
         ----------
@@ -62,7 +62,8 @@ class CiscoIOSLog(Log):
         return "Configured from console by console"
     
     def _generate_description_link():
-        """Generate a random description in accordance with a LINK facilty log.
+        """Generates a random description in accordance with a LINK facility
+        log.
 
         Parameters
         ----------
@@ -78,7 +79,7 @@ class CiscoIOSLog(Log):
                ", changed state to " + random.choice(["up", "down"])
 
     def _generate_description_lineproto():
-        """Generate a random description in accordance with a LINEPROTO facilty
+        """Generates a random description in accordance with a LINEPROTO facilty
         log.
 
         Parameters
@@ -105,9 +106,9 @@ class CiscoIOSLog(Log):
         super().__init__()
 
     def _generate_log(self):
-        """Generate, without timestamp, a random log simulating one created by
+        """Generates a random log, without timestamp, simulating one created by
         a Cisco device running IOS under the format:
-            %facility-severity-MNEMONIC: description
+            %FACILITY-SEVERITY-MNEMONIC: DESCRIPTION
 
         Parameters
         ----------
@@ -116,7 +117,9 @@ class CiscoIOSLog(Log):
         Returns
         -------
         string
-            A description of a log of facility LINEPROTO.
+            The part of a log such as the one created by a Cisco device running 
+            IOS without timestamp (i.e. of format %FACILITY-SEVERITY-MNEMONIC: 
+            DESCRIPTION).
         """
 
         facility = self._log_facility[
@@ -128,9 +131,9 @@ class CiscoIOSLog(Log):
                self._log_description[facility]
 
     def str(self):
-        """Generate a random log simulating one created by a Cisco device
+        """Generates a random log simulating one created by a Cisco device
         running IOS under the format:
-            mm/dd hh:mm:ss: %facility-severity-MNEMONIC: description
+            mm/dd hh:mm:ss: %FACILITY-SEVERITY-MNEMONIC: DESCRIPTION
 
         Parameters
         ----------
@@ -142,5 +145,6 @@ class CiscoIOSLog(Log):
             A log such as the one create by a Cisco device running IOS.
         """
 
-        return self.timestamp.strftime("*%b %d %H:%M:%S.%f")[:-3] + " " + \
+        self.update_timestamp()
+        return self._timestamp.strftime("*%b %d %H:%M:%S.%f")[:-3] + " " + \
                self._generate_log()

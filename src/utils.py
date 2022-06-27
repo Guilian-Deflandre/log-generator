@@ -2,14 +2,14 @@
 
 from faker import Faker
 
+"""This file implement common utilities functions generating fake data used in
+   the forged logs based on the Faker Python's library. Data generated are
+   usernames, IPv4 addresses, host names, port numbers and session ID.
+   See:
+    - https://faker.readthedocs.io/en/master/
+    - https://github.com/joke2k/faker
+"""
 def generate_random_username():
-    """File generated based on
-        https://github.com/danielmiessler/SecLists/tree/master/Usernames-
-        /Names
-        https://github.com/danielmiessler/SecLists/blob/master/Usernames-
-        /cirt-default-usernames.txt
-    
-    """
     return Faker().user_name()
 
 def generate_random_ipv4_address():
